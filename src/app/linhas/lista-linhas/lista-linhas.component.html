@@ -1,0 +1,16 @@
+
+<mat-card *ngFor="let linha of linhas"> 
+  <mat-card-title>{{linha.origemLinha}}</mat-card-title>
+  <mat-card-subtitle>{{linha.destinoLinha}}</mat-card-subtitle>
+  <img mat-card-image src="{{linha.imageUrl}}" alt="Photo of a Shiba Inu">
+  <mat-card-actions>
+      
+      <button mat-raised-button color="primary" (click)="obterDetalhes(linha.id)">
+          <mat-icon>list</mat-icon>Horários
+      </button>
+      <button mat-button >
+          <mat-icon>share</mat-icon>
+      </button>
+      
+  </mat-card-actions>
+</mat-card>

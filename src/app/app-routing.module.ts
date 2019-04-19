@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListaHorariosComponent } from './linhas/lista-horarios/lista-horarios.component';
+import { ListaLinhasComponent } from './linhas/lista-linhas/lista-linhas.component';
+import { DetalharLinhaComponent } from './linhas/detalhar-linha/detalhar-linha.component';
 
 const routes: Routes = [
   {
     path:'linhas', 
-    component:ListaHorariosComponent
+    component:ListaLinhasComponent
+  },
+  {
+    path: 'linhas/:id', component: DetalharLinhaComponent
   },
   {
     path:'',

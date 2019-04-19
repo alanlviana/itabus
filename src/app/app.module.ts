@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LinhasModule } from './linhas/linhas.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule,MatButtonModule,MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,8 +15,12 @@ import { LinhasModule } from './linhas/linhas.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     LinhasModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

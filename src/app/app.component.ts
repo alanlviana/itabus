@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'itabus';
+
+  constructor(private router: Router) { 
+
+  }
+
+  irParaLinhas() {
+    this.router.navigate(['/linhas']);
+  }
+
 }
