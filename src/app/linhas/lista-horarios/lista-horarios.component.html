@@ -1,0 +1,17 @@
+<h1>
+  Centro Tecnologico
+</h1>
+<ul class="itinerarios">
+  <li *ngFor="let itinerario of ItinerariosCTMB">
+    Metrô Brás <span class="badge">{{itinerario.partida}}</span>
+  </li>
+</ul>
+
+<h1>
+  Metrô Brás
+</h1>
+<ul class="itinerarios">
+    <li *ngFor="let itinerario of ItinerariosMBCT">
+      Centro Tecnológico <span class="badge">{{itinerario.partida}}</span>
+    </li>
+  </ul>

@@ -1,0 +1,23 @@
+ul{
+    padding: 0px;
+}
+
+li{
+    list-style-type: none;
+    margin: 0px;
+
+    font-size: 90%;
+    color: gray;
+    font-weight: bold;
+}
+
+li span{
+    display: inline-block;
+    font-size: 200%;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    border: 1px blue solid;
+
+}
