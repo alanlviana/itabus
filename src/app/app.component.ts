@@ -18,4 +18,8 @@ export class AppComponent {
     this.router.navigate(['/linhas']);
   }
 
+  onActivate(event){
+    window.scrollTo(0,0);
+  }
+
 }

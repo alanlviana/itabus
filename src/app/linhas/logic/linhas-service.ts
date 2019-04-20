@@ -18,6 +18,7 @@ export class LinhasService{
                                            "18:25","18:35","18:45","19:05",
                                            "19:15","19:25","19:45","20:10",
                                            "20:30","21:15","22:05","22:55"];
+        linhaCentroTecnologico.atualizarHorarios();
 
         let linhaMetroBras = new LinhaOnibus();
         linhaMetroBras.id = "metroBras";
@@ -32,7 +33,7 @@ export class LinhasService{
                                    "11:45","12:20","12:40","12:50",
                                    "13:30","15:40","17:30","17:50",
                                    "18:20","18:40","21:45","23:50"];
-
+        linhaMetroBras.atualizarHorarios();
         
 
         let listaLinha:LinhaOnibus[] = [linhaCentroTecnologico,linhaMetroBras];
@@ -42,7 +43,6 @@ export class LinhasService{
 
     get(id: string, callback) {
         this.getList(response =>{
-            console.log(response);
             let linha = response.filter(l => l.id == id)[0];
             callback(linha);
         })
