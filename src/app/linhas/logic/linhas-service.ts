@@ -23,7 +23,7 @@ export class LinhasService{
         let linhaMetroBras = new LinhaOnibus();
         linhaMetroBras.id = "metroBras";
         linhaMetroBras.origemLinha = "Metrô Brás";
-        linhaMetroBras.destinoLinha = "Centro Tecnologico";
+        linhaMetroBras.destinoLinha = "Centro Tecnológico";
         linhaMetroBras.imageUrl = "/assets/estacao_bras.jpg"
         linhaMetroBras.horarios = ["05:30","05:45","06:35","06:50",
                                    "07:15","07:30","07:40","07:50",

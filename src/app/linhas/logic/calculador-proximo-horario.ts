@@ -7,7 +7,7 @@ export class CalculadorProximoHorario{
     obterHorariosNaOrdem(){
         return new Promise(resolve =>{
             let horaAtual = new Date();
-            let horaAtualFormatada = horaAtual.getHours() + ":" + horaAtual.getMinutes();
+            let horaAtualFormatada = horaAtual.getHours().toString().padStart(2,"0") + ":" + horaAtual.getMinutes().toString().padStart(2, "0");
             
             let quantidadeTotalHorarios = this.horarios.length;
             let horariosParaHoje = this.horarios.filter(h => !this.horarioPassado(horaAtualFormatada, h));
@@ -30,13 +30,16 @@ export class CalculadorProximoHorario{
         let horaAtualSemFormatacao = Number.parseInt(horaAtual.replace(":",""));
         let horaAnaliseSemFormatacao = Number.parseInt(horaAnalise.replace(":",""));
 
+        console.log(horaAtualSemFormatacao);
+        console.log(horaAnaliseSemFormatacao);
+
         return horaAtualSemFormatacao > horaAnaliseSemFormatacao;
     }
 
     obterHorasMinutosSegundosProximaPartida(){
         return new Promise(resolve => {
             var dataReferencia = new Date();
-            let horaAtualFormatada = dataReferencia.getHours() + ":" + dataReferencia.getMinutes();
+            let horaAtualFormatada = dataReferencia.getHours().toString().padStart(2, "0") + ":" + dataReferencia.getMinutes().toString().padStart(2, "0");
             
             this.obterHorariosNaOrdem().then(horariosNaOrdem => {
                 var proximoHorario = horariosNaOrdem[0];

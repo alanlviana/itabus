@@ -1,15 +1,12 @@
 
 <mat-card *ngFor="let linha of linhas"> 
   <mat-card-title>{{linha.origemLinha}}</mat-card-title>
-  <mat-card-subtitle>Próxima partida {{linha.proximoHorario}} </mat-card-subtitle>
+  <mat-card-subtitle>Próxima partida em <span>{{linha.proximoHorario}}</span> ({{linha.horariosFuturos[0]}}) </mat-card-subtitle>
   <img mat-card-image src="{{linha.imageUrl}}"  (click)="obterDetalhes(linha.id)">
   <mat-card-actions>
       
       <button mat-raised-button color="primary" (click)="obterDetalhes(linha.id)">
           <mat-icon>list</mat-icon>Próximos horários
-      </button>
-      <button mat-raised-button color="primary" >
-          <mat-icon>share</mat-icon>
       </button>
       
   </mat-card-actions>

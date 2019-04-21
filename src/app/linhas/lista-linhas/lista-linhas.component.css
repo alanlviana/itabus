@@ -1,3 +1,7 @@
 mat-card{
     margin: 20px;
 }
+
+mat-card-subtitle span{
+    font-weight: bold;
+}

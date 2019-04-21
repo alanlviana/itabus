@@ -12,11 +12,22 @@
 
 .proxima-partida{
     margin-top: 20px;
+    width: 100%;
+    background: green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin: 0;
 }
 
-h3{
-    margin-left: 20px;
-    margin-bottom: 0px;
+.proxima-partida p{
     padding: 0;
+    margin: 0 0 0 20px;
+}
+
+.proxima-partida span{
+    font-weight: bold;
+}
+
+p{
     color: white;
 }

@@ -13,7 +13,18 @@ export class LinhaOnibus{
         let calculadora = new CalculadorProximoHorario(this.horarios);
         calculadora.obterHorasMinutosSegundosProximaPartida().then(value => {
             let diferenca = <any>value;
-            this.proximoHorario = diferenca.horas + "h "+diferenca.minutos+"m "+diferenca.segundos+"s";
+            let horarioFormatado = "";
+            if (diferenca.horas > 0){
+                horarioFormatado += diferenca.horas + "h ";
+            }
+
+            if (diferenca.minutos > 0 || diferenca.horas > 0){
+                horarioFormatado += diferenca.minutos + "m ";
+            }
+
+            horarioFormatado += diferenca.segundos+"s";
+
+            this.proximoHorario = horarioFormatado.trim();
             console.log(this.proximoHorario);
         });
         calculadora.obterHorariosNaOrdem().then(value => {
