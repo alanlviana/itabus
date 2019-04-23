@@ -7,7 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LinhasModule } from './linhas/linhas.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule,MatButtonModule,MatIconModule} from '@angular/material';
+import {MatToolbarModule,MatButtonModule,MatIconModule, MatSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import {MatToolbarModule,MatButtonModule,MatIconModule} from '@angular/material'
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    MatSnackBarModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

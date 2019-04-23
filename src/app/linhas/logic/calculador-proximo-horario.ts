@@ -30,9 +30,6 @@ export class CalculadorProximoHorario{
         let horaAtualSemFormatacao = Number.parseInt(horaAtual.replace(":",""));
         let horaAnaliseSemFormatacao = Number.parseInt(horaAnalise.replace(":",""));
 
-        console.log(horaAtualSemFormatacao);
-        console.log(horaAnaliseSemFormatacao);
-
         return horaAtualSemFormatacao > horaAnaliseSemFormatacao;
     }
 

@@ -25,7 +25,6 @@ export class LinhaOnibus{
             horarioFormatado += diferenca.segundos+"s";
 
             this.proximoHorario = horarioFormatado.trim();
-            console.log(this.proximoHorario);
         });
         calculadora.obterHorariosNaOrdem().then(value => {
             this.horariosFuturos = <string[]>value;
