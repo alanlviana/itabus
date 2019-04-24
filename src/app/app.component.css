@@ -3,3 +3,19 @@
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
+
+  .rodape{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+  }
+
+  .rodape p{
+    margin: 0;
+  }
+
+  .rodape a{
+    color: white;
+    text-decoration: underline;
+  }
