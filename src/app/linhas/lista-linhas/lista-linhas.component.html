@@ -1,7 +1,7 @@
 
 <mat-card *ngFor="let linha of linhas"> 
-  <mat-card-title>{{linha.origemLinha}}</mat-card-title>
-  <mat-card-subtitle>Próxima partida em <span>{{linha.proximoHorario}}</span> ({{linha.horariosFuturos[0]}}) </mat-card-subtitle>
+  <mat-card-title><span>Estou em </span>{{linha.origemLinha}}</mat-card-title>
+  <mat-card-subtitle>Partindo para <span>{{linha.destinoLinha}}</span> em <span>{{linha.proximoHorario}}</span> ({{linha?.horariosFuturos[0]}}) </mat-card-subtitle>
   <img mat-card-image src="{{linha.imageUrl}}"  (click)="obterDetalhes(linha.id)">
   <mat-card-actions>
       

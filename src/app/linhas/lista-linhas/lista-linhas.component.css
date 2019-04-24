@@ -5,3 +5,8 @@ mat-card{
 mat-card-subtitle span{
     font-weight: bold;
 }
+
+mat-card-title span{
+    display: block;
+    font-size: 50%;
+}
