@@ -7,7 +7,7 @@ import { CalculadorProximoHorario } from '../logic/calculador-proximo-horario';
 @Component({
   selector: 'app-lista-linhas',
   templateUrl: './lista-linhas.component.html',
-  styleUrls: ['./lista-linhas.component.css']
+  styleUrls: ['./lista-linhas.component.scss']
 })
 export class ListaLinhasComponent implements OnInit {
 
