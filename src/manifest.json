@@ -1,8 +1,8 @@
 {
   "name": "itabus",
   "short_name": "Itabus",
-  "theme_color": "#fff898",
-  "background_color": "##fff898",
+  "theme_color": "#ff5722",
+  "background_color": "#9795ed",
   "display": "standalone",
   "scope": "/",
   "start_url": "https://itabus.alanlviana.com.br/linhas",
