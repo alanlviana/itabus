@@ -36,7 +36,7 @@ export class LinhasService{
         linhaMetroBras.atualizarHorarios();
 
         let linhaCentroEmpresarialParaCentroTecnologico = new LinhaOnibus();
-        linhaCentroEmpresarialParaCentroTecnologico.id = "centroEmpresarial";
+        linhaCentroEmpresarialParaCentroTecnologico.id = "centroEmpresarialParaTecnologico";
         linhaCentroEmpresarialParaCentroTecnologico.origemLinha = "Centro Empresarial (CEIC)";
         linhaCentroEmpresarialParaCentroTecnologico.destinoLinha = "Centro Tecnológico";
         linhaCentroEmpresarialParaCentroTecnologico.imageUrl = "/assets/centro_empresarial_itau.jpg"
