@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
+import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +12,8 @@ import { SwUpdate } from '@angular/service-worker';
 export class AppComponent {
   title = 'itabus';
 
-  constructor(private router: Router, private snackBar: MatSnackBar, private swUpdate: SwUpdate) { 
-
+  constructor(private router: Router, private snackBar: MatSnackBar, private swUpdate: SwUpdate, private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { 
+    angulartics2GoogleAnalytics.startTracking();
   }
 
   irParaLinhas() {
