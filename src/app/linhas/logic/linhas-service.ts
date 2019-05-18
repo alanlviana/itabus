@@ -34,9 +34,43 @@ export class LinhasService{
                                    "13:30","15:40","17:30","17:50",
                                    "18:20","18:40","21:45","23:50"];
         linhaMetroBras.atualizarHorarios();
-        
 
-        let listaLinha:LinhaOnibus[] = [linhaCentroTecnologico,linhaMetroBras];
+        let linhaCentroEmpresarialParaCentroTecnologico = new LinhaOnibus();
+        linhaCentroEmpresarialParaCentroTecnologico.id = "centroEmpresarialParaTecnologico";
+        linhaCentroEmpresarialParaCentroTecnologico.origemLinha = "Centro Empresarial (CEIC)";
+        linhaCentroEmpresarialParaCentroTecnologico.destinoLinha = "Centro Tecnológico";
+        linhaCentroEmpresarialParaCentroTecnologico.imageUrl = "/assets/centro_empresarial_itau.jpg"
+        linhaCentroEmpresarialParaCentroTecnologico.horarios = ["08:00", "08:15",
+                                                                "08:45","09:05","09:30","09:50",
+                                                                "09:55","10:45","10:50","11:20",
+                                                                "11:35","12:20","12:25","12:30",
+                                                                "13:15","13:50","14:05","14:30",
+                                                                "14:55","15:10","15:20","15:45",
+                                                                "16:35","16:50","17:35","18:00",
+                                                                "18:15","18:25","19:20"];
+        linhaCentroEmpresarialParaCentroTecnologico.atualizarHorarios();
+
+        let linhaCentroTecnologicoParaCentroEmpresarial = new LinhaOnibus();
+        linhaCentroTecnologicoParaCentroEmpresarial.id = "centroTecnologicoParaEmpresarial";
+        linhaCentroTecnologicoParaCentroEmpresarial.origemLinha = "Centro Tecnológico";
+        linhaCentroTecnologicoParaCentroEmpresarial.destinoLinha = "Centro Empresarial (CEIC)";
+        linhaCentroTecnologicoParaCentroEmpresarial.imageUrl = "/assets/centro_tecnologico_itau.jpg"
+        linhaCentroTecnologicoParaCentroEmpresarial.horarios = ["08:00", "08:15",
+                                                                "08:40","09:00","09:05","09:55",
+                                                                "10:00","10:30","10:45","11:30",
+                                                                "11:35","11:40","12:25","13:00",
+                                                                "13:15","13:40","14:05","14:20",
+                                                                "14:30","14:55","15:45","16:00",
+                                                                "16:35","17:00","17:10","17:20",
+                                                                "17:25","18:35","18:50","19:20"];
+        linhaCentroTecnologicoParaCentroEmpresarial.atualizarHorarios();
+        
+        let listaLinha:LinhaOnibus[] = [
+            linhaCentroTecnologico,
+            linhaMetroBras,
+            linhaCentroEmpresarialParaCentroTecnologico,
+            linhaCentroTecnologicoParaCentroEmpresarial
+        ];
 
         callback(listaLinha);
     }
