@@ -19,7 +19,7 @@ export class ListaLinhasComponent implements OnInit {
   }
 
   ngAfterContentInit(){
-    console.log("Buscando por atualizações.");
+    console.log("Buscando por atualizações disponíveis.");
     if (this.swUpdate.isEnabled){
       this.swUpdate.checkForUpdate();
     }
