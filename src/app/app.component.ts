@@ -22,6 +22,9 @@ export class AppComponent {
 
   onActivate(event){
     window.scrollTo(0,0);
+    if (this.swUpdate.isEnabled){
+      this.swUpdate.checkForUpdate();
+    }
   }
 
   exibeBotaoLinhas(){
@@ -36,7 +39,7 @@ export class AppComponent {
       this.swUpdate.available.subscribe((event)=>{
         console.log("[App] Atualização disponível: A versão atual é:", event.current, " e a versão disponível é ", event.available);
 
-        const snackBarRef = this.snackBar.open('Nova versão disponível', "Instalar agora!");
+        const snackBarRef = this.snackBar.open("Atualização disponível ("+event.available.appData["version"]+")!", "Atualizar agora!");
         snackBarRef.onAction().subscribe(()=>{
           window.location.reload();
         });

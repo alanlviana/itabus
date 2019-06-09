@@ -1,5 +1,9 @@
 {
   "index": "/index.html",
+  "appData": {
+    "version": "1.0.3",
+    "changelog": "Atualização disponível"
+  },
   "assetGroups": [
     {
       "name": "app",
