@@ -32,11 +32,14 @@ export class AppComponent {
     // Verificar se existe uma atualização
     if (this.swUpdate.isEnabled){
       this.swUpdate.activated.subscribe(()=>{
+        console.log("Nova versão disponível.");
         const sw = this.snackBar.open('Nova versão disponível', "Instalar agora!", {duration: 4000});
         sw.onAction().subscribe(()=>{
           window.location.reload();
         });
       });
+
+      console.log("Inicando busca por atualizações.")
       this.swUpdate.checkForUpdate();
     }
 
