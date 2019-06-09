@@ -40,14 +40,21 @@ export class LinhasService{
         linhaCentroEmpresarialParaCentroTecnologico.origemLinha = "Centro Empresarial (CEIC)";
         linhaCentroEmpresarialParaCentroTecnologico.destinoLinha = "Centro Tecnológico";
         linhaCentroEmpresarialParaCentroTecnologico.imageUrl = "/assets/centro_empresarial_itau.jpg"
-        linhaCentroEmpresarialParaCentroTecnologico.horarios = ["08:00", "08:15",
-                                                                "08:45","09:05","09:30","09:50",
-                                                                "09:55","10:45","10:50","11:20",
-                                                                "11:35","12:20","12:25","12:30",
-                                                                "13:15","13:50","14:05","14:30",
-                                                                "14:55","15:10","15:20","15:45",
-                                                                "16:35","16:50","17:35","18:00",
-                                                                "18:15","18:25","19:20"];
+        linhaCentroEmpresarialParaCentroTecnologico.horarios = [
+            "08:00", "08:15","08:45","08:55",
+            "09:15", "09:35","09:55",
+            "10:15", "10:35","10:55",
+            "11:20", "11:35","11:50",
+            "12:15", "12:30","12:55",
+            "13:10", "13:35","13:55",
+            "14:15", "14:30","14:55",
+            "15:10", "15:35","15:45",
+            "16:15", "16:30","16:55",
+            "17:15", "17:50",
+            "18:00", "18:30",
+            "19:20"
+        ];
+    
         linhaCentroEmpresarialParaCentroTecnologico.atualizarHorarios();
 
         let linhaCentroTecnologicoParaCentroEmpresarial = new LinhaOnibus();
@@ -55,14 +62,20 @@ export class LinhasService{
         linhaCentroTecnologicoParaCentroEmpresarial.origemLinha = "Centro Tecnológico";
         linhaCentroTecnologicoParaCentroEmpresarial.destinoLinha = "Centro Empresarial (CEIC)";
         linhaCentroTecnologicoParaCentroEmpresarial.imageUrl = "/assets/centro_tecnologico_itau.jpg"
-        linhaCentroTecnologicoParaCentroEmpresarial.horarios = ["08:00", "08:15",
-                                                                "08:40","09:00","09:05","09:55",
-                                                                "10:00","10:30","10:45","11:30",
-                                                                "11:35","11:40","12:25","13:00",
-                                                                "13:15","13:40","14:05","14:20",
-                                                                "14:30","14:55","15:45","16:00",
-                                                                "16:35","17:00","17:10","17:20",
-                                                                "17:25","18:35","18:50","19:20"];
+        linhaCentroTecnologicoParaCentroEmpresarial.horarios = [
+            "08:00", "08:15","08:30","08:55",
+            "09:10", "09:35","09:50",
+            "10:15", "10:35","10:55",
+            "11:05", "11:35","11:45",
+            "12:15", "12:25","12:55",
+            "13:10", "13:35","13:40",
+            "14:15", "14:20","14:55",
+            "15:00", "15:35","15:45",
+            "16:15", "16:30","16:55",
+            "17:15", "17:35",
+            "18:00", "18:30","18:40",
+            "19:10", "19:20"
+        ];
         linhaCentroTecnologicoParaCentroEmpresarial.atualizarHorarios();
         
         let listaLinha:LinhaOnibus[] = [

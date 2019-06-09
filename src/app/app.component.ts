@@ -22,7 +22,6 @@ export class AppComponent {
 
   onActivate(event){
     window.scrollTo(0,0);
-    console.log(this.router.url);
   }
 
   exibeBotaoLinhas(){
@@ -37,7 +36,8 @@ export class AppComponent {
         sw.onAction().subscribe(()=>{
           window.location.reload();
         });
-      })
+      });
+      this.swUpdate.checkForUpdate();
     }
 
     // Dispositivos iOS no navegador
@@ -66,7 +66,6 @@ export class AppComponent {
         })
       }
     }
-
   }
 
 }
