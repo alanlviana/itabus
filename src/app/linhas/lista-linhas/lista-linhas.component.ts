@@ -14,16 +14,9 @@ export class ListaLinhasComponent implements OnInit {
 
   linhas: LinhaOnibus[];
 
-  constructor(private router: Router, private data: LinhasService, private swUpdate: SwUpdate) { 
+  constructor(private router: Router, private data: LinhasService) { 
 
   }
-
-  ngAfterContentInit(){
-    console.log("Buscando por atualizações disponíveis.");
-    if (this.swUpdate.isEnabled){
-      this.swUpdate.checkForUpdate();
-    }
-  }  
 
   obterDetalhes(id) {
 
