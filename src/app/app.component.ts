@@ -29,6 +29,8 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    console.log("ngOnInit()");
+
     // Verificar se existe uma atualização
     if (this.swUpdate.isEnabled){
       this.swUpdate.activated.subscribe(()=>{
@@ -38,9 +40,6 @@ export class AppComponent {
           window.location.reload();
         });
       });
-
-      console.log("Inicando busca por atualizações.")
-      this.swUpdate.checkForUpdate();
     }
 
     // Dispositivos iOS no navegador
