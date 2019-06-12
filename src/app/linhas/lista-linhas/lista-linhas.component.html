@@ -1,7 +1,14 @@
 
 <mat-card *ngFor="let tupla of linhas"> 
   <mat-card-title><span>Estou em</span>{{tupla.linha.origemLinha}}</mat-card-title>
-  <mat-card-subtitle>Partindo para <span>{{tupla.linha.destinoLinha}}</span> em <span>{{tupla.contagemRegressiva}}</span> ({{tupla.proximaPartida}}) </mat-card-subtitle>
+  <mat-card-subtitle>
+      <mat-chip-list>
+          <div *ngFor="let detalheDestino of tupla.detalhesDestinos">
+             <mat-chip color="primary" selected (click)="obterDetalhes(tupla.linha.id)" >{{detalheDestino.destino.nome}} - {{detalheDestino.proximaPartida}} - {{detalheDestino.contagemRegressiva}}</mat-chip>
+          </div>
+      </mat-chip-list>       
+  </mat-card-subtitle>
+  
   <img mat-card-image src="{{tupla.linha.imageUrl}}"  (click)="obterDetalhes(tupla.linha.id)">
   <mat-card-actions>
       

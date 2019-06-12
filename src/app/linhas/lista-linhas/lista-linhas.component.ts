@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { LinhasService } from '../logic/linhas-service';
 import { LinhaOnibus } from '../logic/linha-onibus';
 import { CalculadorProximoHorario } from '../logic/calculador-proximo-horario';
+import { DestinoOnibus } from '../logic/destino-onibus';
 
 @Component({
   selector: 'app-lista-linhas',
@@ -12,12 +13,10 @@ import { CalculadorProximoHorario } from '../logic/calculador-proximo-horario';
 export class ListaLinhasComponent implements OnInit {
 
   linhas: LinhaDetalheTempo[];
-  calculadora : CalculadorProximoHorario;
 
   interval: any;
 
   constructor(private router: Router, private data: LinhasService) { 
-    this.calculadora = new CalculadorProximoHorario();
   }
 
   obterDetalhes(id) {
@@ -31,7 +30,7 @@ export class ListaLinhasComponent implements OnInit {
           let linhaDetalhe = new LinhaDetalheTempo(linha);
           return linhaDetalhe;
         });
-        this.atualizaHorariosLista();
+        this.atualizaHorarioLinhas();
       },
       err => {
         console.log(err);
@@ -39,23 +38,16 @@ export class ListaLinhasComponent implements OnInit {
     );
   }
 
-  atualizaHorariosLista(){
-    this.linhas.forEach(linha => {
-      linha.contagemRegressiva = this.calculadora.formatarTempo(linha.linha.horarios);
-      linha.proximaPartida = this.calculadora.proximoHorario(linha.linha.horarios);
-    });
+  atualizaHorarioLinhas(){
+    this.linhas.forEach(linha => linha.atualizaHorariosDestino());
   }
-
-  
-
-
 
 
   ngOnInit() {
     this.atualizarLista();
     this.interval = setInterval(()=>{
       if (this.linhas != undefined){
-        this.atualizaHorariosLista();
+        this.atualizaHorarioLinhas();
       }
     }, 1000)
   }
@@ -66,9 +58,33 @@ export class ListaLinhasComponent implements OnInit {
 }
 
 class LinhaDetalheTempo{
+
+  calculadora : CalculadorProximoHorario;
+  detalhesDestinos: DestinoDetalheTempo[];
+
+  constructor(public linha: LinhaOnibus){
+    this.calculadora = new CalculadorProximoHorario();
+
+    this.detalhesDestinos = linha.destinos.map(destino => {
+      let destinoDetalheTempo = new DestinoDetalheTempo(destino);
+      return destinoDetalheTempo;
+    })
+  }
+
+  public atualizaHorariosDestino(){
+    this.detalhesDestinos.forEach(destinoDetalhe => {
+      destinoDetalhe.contagemRegressiva = this.calculadora.formatarTempo(destinoDetalhe.destino.horarios);
+      destinoDetalhe.proximaPartida = this.calculadora.proximoHorario(destinoDetalhe.destino.horarios);
+    });
+  }
+
+}
+
+class DestinoDetalheTempo{
   public proximaPartida: string;
   public contagemRegressiva: string;
 
-  constructor(public linha: LinhaOnibus){
+  constructor(public destino: DestinoOnibus){
+
   }
 }

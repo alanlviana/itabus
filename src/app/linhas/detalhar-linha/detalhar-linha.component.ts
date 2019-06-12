@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { LinhaOnibus } from '../logic/linha-onibus';
 import { LinhasService } from '../logic/linhas-service';
 import { CalculadorProximoHorario } from '../logic/calculador-proximo-horario';
+import { DestinoOnibus } from '../logic/destino-onibus';
 
 @Component({
   selector: 'app-detalhar-linha',
@@ -13,10 +14,7 @@ export class DetalharLinhaComponent implements OnInit {
 
   routeringPages: any;
   linha: LinhaOnibus;
-  horariosVisualizacao: string[];
-  diferencaTempo: any;
-  proximaPartida: string;
-  calculadora = new CalculadorProximoHorario();
+  horariosDestinos: HorariosDestino[];
 
 
   timer: any;
@@ -30,7 +28,11 @@ export class DetalharLinhaComponent implements OnInit {
         this.linhaService.get(params['id']).subscribe(
           data => {
             this.linha = data;
-            this.atualizaHorariosTela(this.linha.horarios);
+            this.horariosDestinos = this.linha.destinos.map(destino => {
+              let horarioDestino = new HorariosDestino(destino);
+              return horarioDestino;
+            });
+            this.atualizaHorariosDestinos();
           },
           err => {
             console.log(err);
@@ -41,21 +43,39 @@ export class DetalharLinhaComponent implements OnInit {
     
     this.timer = setInterval(()=>{
       if (this.linha != undefined){
-        this.atualizaHorariosTela(this.linha.horarios);
+        this.atualizaHorariosDestinos();
       }
     },1000);
   }
 
-  atualizaHorariosTela(horarios: string[]){
-      this.proximaPartida = this.calculadora.formatarTempo(horarios);
-      this.horariosVisualizacao = this.calculadora.obterHorariosNaOrdem(horarios);
+  atualizaHorariosDestinos(){
+    this.horariosDestinos.forEach(horariosDestino => {
+      horariosDestino.atualizaHorariosDestino();
+    });
   }
   
-
-
-
   ngOnDestroy(){
     clearInterval(this.timer);
   }
+
+}
+
+class HorariosDestino{
+
+  public proximaPartida:string;
+  public horariosVisualizacao:string[];
+
+  constructor(public destino: DestinoOnibus){
+
+  }
+
+  atualizaHorariosDestino(){
+    let calculadora = new CalculadorProximoHorario();
+    this.proximaPartida = calculadora.formatarTempo(this.destino.horarios);
+    this.horariosVisualizacao = calculadora.obterHorariosNaOrdem(this.destino.horarios);
+  }
+
+
+  
 
 }

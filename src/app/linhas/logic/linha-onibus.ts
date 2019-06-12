@@ -1,4 +1,4 @@
-import { CalculadorProximoHorario } from './calculador-proximo-horario';
+import { DestinoOnibus } from './destino-onibus';
 
 export class LinhaOnibus{
 
@@ -8,9 +8,7 @@ export class LinhaOnibus{
 
     id: string;
     origemLinha: string;
-    destinoLinha: string;
     imageUrl: string;
-    horarios: string[];
+    destinos: DestinoOnibus[];
 
-    
 }
