@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListaLinhasComponent } from './lista-linhas/lista-linhas.component';
-
-import { MatButtonModule, MatCardModule, MatListModule, MatIconModule, MatGridListModule} from '@angular/material';
+import { MatButtonModule,MatChipsModule, MatCardModule, MatListModule, MatIconModule, MatGridListModule, MatTabsModule} from '@angular/material';
 import { DetalharLinhaComponent } from './detalhar-linha/detalhar-linha.component';
 import { LinhasService } from './logic/linhas-service';
 
@@ -14,7 +13,9 @@ import { LinhasService } from './logic/linhas-service';
     MatGridListModule,
     MatIconModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    MatTabsModule,
+    MatChipsModule
   ],
   providers:[LinhasService]
 })

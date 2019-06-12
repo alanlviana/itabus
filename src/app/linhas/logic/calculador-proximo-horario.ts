@@ -1,29 +1,32 @@
 import { LinhaOnibus } from './linha-onibus';
+import { Observable, of } from 'rxjs';
 
 export class CalculadorProximoHorario{
 
-    constructor(private horarios:string[]){}
+    constructor(){}
 
-    obterHorariosNaOrdem(){
-        return new Promise(resolve =>{
-            let horaAtual = new Date();
-            let horaAtualFormatada = horaAtual.getHours().toString().padStart(2,"0") + ":" + horaAtual.getMinutes().toString().padStart(2, "0");
+    obterHorariosNaOrdem(horarios:string[]): string[] {
+        
+        let horaAtual = new Date();
+        let horaAtualFormatada = horaAtual.getHours().toString().padStart(2,"0") + ":" + horaAtual.getMinutes().toString().padStart(2, "0");
             
-            let quantidadeTotalHorarios = this.horarios.length;
-            let horariosParaHoje = this.horarios.filter(h => !this.horarioPassado(horaAtualFormatada, h));
-            let quantidadeTotalHorariosHoje = horariosParaHoje.length;
+        let quantidadeTotalHorarios = horarios.length;
+        let horariosParaHoje = horarios.filter(h => !this.horarioPassado(horaAtualFormatada, h));
+        let quantidadeTotalHorariosHoje = horariosParaHoje.length;
     
-            let horariosFaltantes = this.horarios.slice(0,quantidadeTotalHorarios - quantidadeTotalHorariosHoje);
-    
-            let horariosParaVisualizacao = horariosParaHoje;
+        let horariosFaltantes = horarios.slice(0,quantidadeTotalHorarios - quantidadeTotalHorariosHoje);
+        let horariosParaVisualizacao = horariosParaHoje;
             
-            horariosFaltantes.forEach(h => horariosParaVisualizacao.push(h));
+        horariosFaltantes.forEach(h => horariosParaVisualizacao.push(h));
             
-            resolve(horariosParaVisualizacao);
-        });
+        horariosParaVisualizacao;
         
-        
-        
+        return horariosParaVisualizacao; 
+    }
+
+    proximoHorario(horarios: string[]){
+        let proximosHorarios = this.obterHorariosNaOrdem(horarios);
+        return proximosHorarios[0];
     }
 
     private horarioPassado(horaAtual: string, horaAnalise:string){
@@ -33,35 +36,43 @@ export class CalculadorProximoHorario{
         return horaAtualSemFormatacao > horaAnaliseSemFormatacao;
     }
 
-    obterHorasMinutosSegundosProximaPartida(){
-        return new Promise(resolve => {
-            var dataReferencia = new Date();
-            let horaAtualFormatada = dataReferencia.getHours().toString().padStart(2, "0") + ":" + dataReferencia.getMinutes().toString().padStart(2, "0");
-            
-            this.obterHorariosNaOrdem().then(horariosNaOrdem => {
-                var proximoHorario = horariosNaOrdem[0];
-            
-                if (this.horarioPassado(horaAtualFormatada, proximoHorario)){
-                    // Adiciona um dia
-                    dataReferencia.setDate(dataReferencia.getDate() + 1);
-                }
+    obterHorasMinutosSegundosProximaPartida(horarios: string[]): any{
         
-                // Hoje
-                let today = new Date();
-                let dataFormatada = dataReferencia.getFullYear()+"/"+(dataReferencia.getMonth()+1)+"/"+dataReferencia.getDate()+" " + proximoHorario;
-                let endDate = new Date(dataFormatada);
+        var dataReferencia = new Date();
+        let horaAtualFormatada = dataReferencia.getHours().toString().padStart(2, "0") + ":" + dataReferencia.getMinutes().toString().padStart(2, "0");
         
-                let hours = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000 * 60 * 60) % 24);
-                let minutes = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000 * 60) % 60);
-                const seconds = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000) % 60); 
+        let  horariosNaOrdem = this.obterHorariosNaOrdem(horarios)
+        var proximoHorario = horariosNaOrdem[0];
         
-                resolve({horas: hours, minutos: minutes, segundos: seconds});
-    
-            })
+        if (this.horarioPassado(horaAtualFormatada, proximoHorario)){
+            // Adiciona um dia
+            dataReferencia.setDate(dataReferencia.getDate() + 1);
+        }
+             // Hoje
+        let today = new Date();
+        let dataFormatada = dataReferencia.getFullYear()+"/"+(dataReferencia.getMonth()+1)+"/"+dataReferencia.getDate()+" " + proximoHorario;
+        let endDate = new Date(dataFormatada);
+        
+        let hours = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000 * 60 * 60) % 24);
+        let minutes = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000 * 60) % 60);
+        const seconds = Math.floor(Math.abs(endDate.getTime() - today.getTime()) / (1000) % 60); 
+        
+        return {horas: hours, minutos: minutes, segundos: seconds};      
+    };
 
-        })   
-        
-        
-        
+    formatarTempo(horarios: string[]){
+    
+        let diferenca = this.obterHorasMinutosSegundosProximaPartida(horarios);
+
+        let horarioFormatado = "";
+        if (diferenca.horas > 0){
+            horarioFormatado += diferenca.horas + "h ";
+        }
+        if (diferenca.minutos > 0 || diferenca.horas > 0){
+            horarioFormatado += diferenca.minutos + "m ";
+        }
+        horarioFormatado += diferenca.segundos+"s";
+    
+        return horarioFormatado.trim();
     }
 }

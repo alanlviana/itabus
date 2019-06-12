@@ -1,11 +1,18 @@
 
-<mat-card *ngFor="let linha of linhas"> 
-  <mat-card-title><span>Estou em</span>{{linha.origemLinha}}</mat-card-title>
-  <mat-card-subtitle>Partindo para <span>{{linha.destinoLinha}}</span> em <span>{{linha.proximoHorario}}</span> ({{linha?.horariosFuturos[0]}}) </mat-card-subtitle>
-  <img mat-card-image src="{{linha.imageUrl}}"  (click)="obterDetalhes(linha.id)">
+<mat-card *ngFor="let tupla of linhas"> 
+  <mat-card-title><span>Estou em</span>{{tupla.linha.origemLinha}}</mat-card-title>
+  <mat-card-subtitle>
+      <mat-chip-list>
+          <div *ngFor="let detalheDestino of tupla.detalhesDestinos">
+             <mat-chip color="primary" selected (click)="obterDetalhes(tupla.linha.id)" >{{detalheDestino.destino.nome}} - {{detalheDestino.proximaPartida}} - {{detalheDestino.contagemRegressiva}}</mat-chip>
+          </div>
+      </mat-chip-list>       
+  </mat-card-subtitle>
+  
+  <img mat-card-image src="{{tupla.linha.imageUrl}}"  (click)="obterDetalhes(tupla.linha.id)">
   <mat-card-actions>
       
-      <button mat-raised-button color="primary" (click)="obterDetalhes(linha.id)">
+      <button mat-raised-button color="primary" (click)="obterDetalhes(tupla.linha.id)">
           <mat-icon>list</mat-icon>Próximos horários
       </button>
       

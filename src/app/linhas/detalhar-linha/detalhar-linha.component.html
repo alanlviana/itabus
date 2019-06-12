@@ -1,12 +1,18 @@
-<div class="proxima-partida">
-    <p>Partindo para <span>{{linha.destinoLinha}}</span> em <span>{{linha.proximoHorario}}</span></p>
-</div>
+<mat-tab-group>
+    <div *ngFor="let detalheDestino of horariosDestinos">
+        <mat-tab label="{{detalheDestino.destino.nome}}">
+            <mat-list>
+                <div class="proxima-partida">
+                    <p>Partindo para <span>{{detalheDestino.destino.nome}}</span> em <span> {{detalheDestino.proximaPartida}} </span></p>
+                </div>
+                <mat-list-item *ngFor="let horario of detalheDestino.horariosVisualizacao">
+                  <mat-icon mat-list-icon>date_range</mat-icon>
+                  
+                    <h4 mat-line>{{detalheDestino.destino.nome}}</h4>
+                    <p mat-line style="font-weight: bold;"> {{horario}} </p>  
+                </mat-list-item>
+               </mat-list>
+        </mat-tab>
+    </div>
+</mat-tab-group>
 
-<mat-list>
-  <mat-list-item *ngFor="let horario of linha.horariosFuturos">
-    <mat-icon mat-list-icon>date_range</mat-icon>
-    
-      <h4 mat-line>{{linha.destinoLinha}}</h4>
-      <p mat-line style="font-weight: bold;"> {{horario}} </p>  
-  </mat-list-item>
- </mat-list>

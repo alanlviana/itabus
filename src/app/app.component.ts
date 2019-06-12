@@ -32,8 +32,6 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    console.log("ngOnInit()");
-
     // Verificar se existe uma atualização
     if (this.swUpdate.isEnabled){
       this.swUpdate.available.subscribe((event)=>{
