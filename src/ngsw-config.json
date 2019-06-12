@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "version": "1.0.4",
-    "changelog": "Teste de atualização."
+    "version": "1.0.5",
+    "changelog": "Adicionada opção de multiplos destinos."
   },
   "assetGroups": [
     {
