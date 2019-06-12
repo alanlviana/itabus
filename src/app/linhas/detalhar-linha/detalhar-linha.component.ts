@@ -15,22 +15,47 @@ export class DetalharLinhaComponent implements OnInit {
   linha: LinhaOnibus;
   horariosVisualizacao: string[];
   diferencaTempo: any;
+  proximaPartida: string;
+  calculadora = new CalculadorProximoHorario();
 
-  constructor(private activated: ActivatedRoute,private data: LinhasService ) { }
+
+  timer: any;
+
+  constructor(private activated: ActivatedRoute,private linhaService: LinhasService ) { }
 
   ngOnInit() {
     this.routeringPages = this.activated.params.subscribe(params => {
 
-      if (params['id']) {
-        this.data.get(params['id'], response => {
-          this.linha = response;
-        });
+    if (params['id']) {
+        this.linhaService.get(params['id']).subscribe(
+          data => {
+            this.linha = data;
+            this.atualizaHorariosTela(this.linha.horarios);
+          },
+          err => {
+            console.log(err);
+          }
+        );
       }
     });
+    
+    this.timer = setInterval(()=>{
+      if (this.linha != undefined){
+        this.atualizaHorariosTela(this.linha.horarios);
+      }
+    },1000);
   }
 
+  atualizaHorariosTela(horarios: string[]){
+      this.proximaPartida = this.calculadora.formatarTempo(horarios);
+      this.horariosVisualizacao = this.calculadora.obterHorariosNaOrdem(horarios);
+  }
+  
+
+
+
   ngOnDestroy(){
-    
+    clearInterval(this.timer);
   }
 
 }

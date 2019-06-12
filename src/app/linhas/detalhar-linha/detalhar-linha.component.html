@@ -1,9 +1,9 @@
 <div class="proxima-partida">
-    <p>Partindo para <span>{{linha.destinoLinha}}</span> em <span>{{linha.proximoHorario}}</span></p>
+    <p>Partindo para <span>{{linha.destinoLinha}}</span> em <span> {{proximaPartida}} </span></p>
 </div>
 
 <mat-list>
-  <mat-list-item *ngFor="let horario of linha.horariosFuturos">
+  <mat-list-item *ngFor="let horario of horariosVisualizacao">
     <mat-icon mat-list-icon>date_range</mat-icon>
     
       <h4 mat-line>{{linha.destinoLinha}}</h4>
