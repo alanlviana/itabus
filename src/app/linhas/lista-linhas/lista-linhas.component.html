@@ -1,20 +1,32 @@
 
-<mat-card *ngFor="let tupla of linhas"> 
-  <mat-card-title><span>Estou em</span>{{tupla.linha.origemLinha}}</mat-card-title>
-  <mat-card-subtitle>
-      <mat-chip-list>
-          <div *ngFor="let detalheDestino of tupla.detalhesDestinos">
-             <mat-chip color="primary" selected (click)="obterDetalhes(tupla.linha.id)" >{{detalheDestino.destino.nome}} - {{detalheDestino.proximaPartida}} - {{detalheDestino.contagemRegressiva}}</mat-chip>
-          </div>
-      </mat-chip-list>       
-  </mat-card-subtitle>
-  
-  <img mat-card-image src="{{tupla.linha.imageUrl}}"  (click)="obterDetalhes(tupla.linha.id)">
-  <mat-card-actions>
-      
-      <button mat-raised-button color="primary" (click)="obterDetalhes(tupla.linha.id)">
-          <mat-icon>list</mat-icon>Próximos horários
-      </button>
-      
-  </mat-card-actions>
-</mat-card>
+<div style="margin: 10px 10px 10px 10px">
+    <div fxLayout="row wrap"
+        fxLayoutGap="10px grid"
+        fxLayout.lt-sm="column">
+
+        <div fxFlex="0 1 calc(33.3%)" 
+        fxFlex.lt-md="0 1 calc(50%)" 
+        fxFlex.lt-sm="100%"
+        *ngFor="let tupla of linhas"> 
+            <mat-card > 
+                <mat-card-title><span>Estou em</span>{{tupla.linha.origemLinha}}</mat-card-title>
+                <mat-card-subtitle>
+                    <mat-chip-list>
+                        <div *ngFor="let detalheDestino of tupla.detalhesDestinos">
+                        <mat-chip color="primary" selected (click)="obterDetalhes(tupla.linha.id)" >{{detalheDestino.destino.nome}} - {{detalheDestino.proximaPartida}} - {{detalheDestino.contagemRegressiva}}</mat-chip>
+                        </div>
+                    </mat-chip-list>       
+                </mat-card-subtitle>
+                
+                <img mat-card-image src="{{tupla.linha.imageUrl}}"  (click)="obterDetalhes(tupla.linha.id)">
+                <mat-card-actions>
+
+                    <button mat-raised-button color="primary" (click)="obterDetalhes(tupla.linha.id)">
+                        <mat-icon>list</mat-icon>Próximos horários
+                    </button>
+                    
+                </mat-card-actions>
+            </mat-card>
+        </div>        
+    </div>
+</div>

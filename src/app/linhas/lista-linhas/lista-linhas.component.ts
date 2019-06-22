@@ -13,7 +13,6 @@ import { DestinoOnibus } from '../logic/destino-onibus';
 export class ListaLinhasComponent implements OnInit {
 
   linhas: LinhaDetalheTempo[];
-
   interval: any;
 
   constructor(private router: Router, private data: LinhasService) { 
@@ -51,7 +50,7 @@ export class ListaLinhasComponent implements OnInit {
       }
     }, 1000)
   }
-
+  
   ngOnDestroy(){
     clearInterval(this.interval);
   }

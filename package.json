@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "serve-prod-ngsw": "npm run build && angular-http-server public -p 3333 --path ./public"
+    "start-ngsw": "npm run build && angular-http-server public -p 3333 --path ./public"
   },
   "private": true,
   "dependencies": {

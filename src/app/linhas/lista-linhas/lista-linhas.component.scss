@@ -1,7 +1,3 @@
-mat-card{
-    margin: 20px;
-}
-
 mat-card-subtitle span{
     font-weight: bold;
 }
@@ -13,4 +9,8 @@ mat-card-title span{
 
 mat-chip{
     font-size: 75%;
+}
+
+mat-card-actions button{
+    width: 100%;
 }
