@@ -1,7 +1,7 @@
 {
   "index": "/index.html",
   "appData": {
-    "version": "1.0.5",
+    "version": "1.0.6",
     "changelog": "Adicionada opção de multiplos destinos."
   },
   "assetGroups": [
