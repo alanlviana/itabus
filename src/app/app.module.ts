@@ -8,6 +8,7 @@ import { environment } from '../environments/environment';
 import { LinhasModule } from './linhas/linhas.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule,MatButtonModule,MatIconModule, MatSnackBarModule} from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {MatToolbarModule,MatButtonModule,MatIconModule, MatSnackBarModule} from 
     MatToolbarModule,
     MatIconModule,
     MatSnackBarModule,
+    FlexLayoutModule,
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

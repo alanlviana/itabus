@@ -4,6 +4,7 @@ import { ListaLinhasComponent } from './lista-linhas/lista-linhas.component';
 import { MatButtonModule,MatChipsModule, MatCardModule, MatListModule, MatIconModule, MatGridListModule, MatTabsModule} from '@angular/material';
 import { DetalharLinhaComponent } from './detalhar-linha/detalhar-linha.component';
 import { LinhasService } from './logic/linhas-service';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
   @NgModule({
   declarations: [ListaLinhasComponent, DetalharLinhaComponent],
@@ -15,7 +16,8 @@ import { LinhasService } from './logic/linhas-service';
     MatButtonModule,
     MatListModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    FlexLayoutModule
   ],
   providers:[LinhasService]
 })
