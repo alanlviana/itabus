@@ -5,7 +5,7 @@
   "background_color": "#9795ed",
   "display": "standalone",
   "scope": "/",
-  "start_url": "https://itabus-stage.alanlviana.com.br/linhas",
+  "start_url": "https://itabus-stage.firebaseapp.com/linhas",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",
