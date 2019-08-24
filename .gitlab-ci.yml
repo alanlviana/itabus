@@ -6,8 +6,7 @@ cache:
     - app/bower_components
 before_script:
   - npm install -g firebase-tools
-  - npm install -g bower
-  - npm install --no-optional
+  - npm install
 
 deploy_production:
   stage: deploy
