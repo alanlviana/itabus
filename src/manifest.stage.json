@@ -2,7 +2,7 @@
   "name": "itabus-stage",
   "short_name": "Itabus-stage",
   "theme_color": "#ff5722",
-  "background_color": "#9795ed",
+  "background_color": "#000",
   "display": "standalone",
   "scope": "/",
   "start_url": "https://itabus-stage.firebaseapp.com/linhas",
