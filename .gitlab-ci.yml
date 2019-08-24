@@ -29,6 +29,6 @@ deploy_stage:
     - npm install -g bower
     - npm install -g @angular/cli@8.0.0-rc.2
     - npm install --no-optional
-    - ng build --prod
+    - ng build --configuration=stage
     - firebase use --token $FIREBASE_DEPLOY_KEY stage
     - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --token $FIREBASE_DEPLOY_KEY
