@@ -16,10 +16,9 @@ export class DetalharLinhaComponent implements OnInit {
   linha: LinhaOnibus;
   horariosDestinos: HorariosDestino[];
 
-
   timer: any;
 
-  constructor(private activated: ActivatedRoute,private linhaService: LinhasService ) { }
+  constructor(private activated: ActivatedRoute,private linhaService: LinhasService) { }
 
   ngOnInit() {
     this.routeringPages = this.activated.params.subscribe(params => {

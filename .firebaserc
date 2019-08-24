@@ -1,5 +1,6 @@
 {
   "projects": {
-    "production": "itabus"
+    "production": "itabus",
+    "stage" : "itabus-stage"
   }
 }
