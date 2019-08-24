@@ -4,11 +4,11 @@ cache:
   paths:
     - node_modules/
     - app/bower_components
-  before_script:
-    - npm install -g firebase-tools
-    - npm install -g bower
-    - npm install -g @angular/cli@8.0.0-rc.2
-    - npm install --no-optional
+before_script:
+  - npm install -g firebase-tools
+  - npm install -g bower
+  - npm install -g @angular/cli@8.0.0-rc.2
+  - npm install --no-optional
 
 deploy_production:
   stage: deploy
