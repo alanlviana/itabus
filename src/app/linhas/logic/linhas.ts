@@ -93,5 +93,27 @@ export const Linhas: LinhaOnibus[] = [
                 "18:15"
             ]
         }]
+    }),
+    
+    new LinhaOnibus({
+        id: "farialima",
+        origemLinha: "Faria Lima",
+        imageUrl: "/assets/itau_faria_lima.jpg",
+        destinos:[
+        {
+            nome: "Centro Empresarial (CEIC)",
+            horarios: [
+                "08:00", "08:50",
+                "09:40",
+                "10:20",
+                "11:20",
+                "13:00",
+                "14:40",
+                "15:20",
+                "16:20",
+                "17:00",
+                "18:30"
+            ]
+        }]
     })
 ];
