@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "version": "1.0.9",
-    "changelog": "Adicionados novos horários."
+    "version": "1.0.10",
+    "changelog": "Adicionados novos horários e linhas."
   },
   "assetGroups": [
     {
