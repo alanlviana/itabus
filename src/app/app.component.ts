@@ -18,8 +18,8 @@ export class AppComponent {
     angulartics2GoogleAnalytics.startTracking();
   }
 
-  irParaLinhas() {
-    this.router.navigate(['/linhas']);
+  compartilhar() {
+    this.router.navigate(['/compartilhar']);
   }
 
   onActivate(event){

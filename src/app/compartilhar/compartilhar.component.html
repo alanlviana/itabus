@@ -1,0 +1,28 @@
+<div style="margin: 10px 10px 10px 10px">
+
+    <div flex fxLayout="column">
+        <div fxFlex="100">
+            <mat-form-field class="input-site">
+                <mat-label>Endereço</mat-label>
+                <input type="text" #enderecoInput readonly matInput value="https://itabus.alanlviana.com.br/">
+                <mat-icon (click)="copiarEndereco(enderecoInput)" matSuffix>file_copy</mat-icon>
+            </mat-form-field>
+        </div>
+        <div fxFlex="100">
+            <div class="qrcode">
+                <img src="/assets/qrcode-itabus.png"/>
+            </div>
+        </div>
+        <div fxFlex="100">
+            <a href="whatsapp://send?text=https://itabus.alanlviana.com.br" data-action="share/whatsapp/share">
+                <button class="botaoWhatsapp" mat-flat-button><mat-icon>group</mat-icon> Compartilhar no Whatsapp</button>
+            </a>
+        </div>
+    </div>
+
+    <button mat-fab class="botaoVoltar" (click)="irParaHome()" color="primary">
+        <mat-icon >arrow_back</mat-icon>
+    </button>   
+
+
+</div>
