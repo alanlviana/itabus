@@ -10,6 +10,14 @@
     font-size: 75%;
 }
 
+
+.botaoVoltar{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+}
+
 .proxima-partida p{
     padding: 0;
     margin: 0 0 0 20px;

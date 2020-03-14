@@ -6,14 +6,14 @@
             <!-- This fills the remaining space of the current row -->
             <span class="example-fill-remaining-space"></span>
           
-            <button [style.visibility]="exibeBotaoLinhas() ? 'visible' : 'hidden'" mat-button (click)="irParaLinhas()">
-                Todas as Linhas <mat-icon >airport_shuttle</mat-icon>
+            <button mat-button (click)="compartilhar()">
+                 <mat-icon >share</mat-icon> Compartilhar
             </button>
       </mat-toolbar>
     </div>
 
     <main class="content">
-      <router-outlet  (activate)="onActivate($event)"></router-outlet>      
+      <router-outlet  (activate)="onActivate($event)"></router-outlet> 
     </main>
     <div class="rodape">
         <p>Alan Luiz Viana - <a href="https://github.com/alanlviana/itabus">https://github.com/alanlviana/itabus</a></p>
