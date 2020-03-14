@@ -3,6 +3,8 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { environment } from 'src/environments/environment'
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'itabus';
+  title:string;
 
   constructor(private router: Router, private snackBar: MatSnackBar, private swUpdate: SwUpdate, private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics) { 
     angulartics2GoogleAnalytics.startTracking();
@@ -32,6 +34,8 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    this.title = environment.appName;
+
     // Verificar se existe uma atualização
     if (this.swUpdate.isEnabled){
       this.swUpdate.available.subscribe((event)=>{

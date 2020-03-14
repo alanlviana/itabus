@@ -1,8 +1,8 @@
 {
   "index": "/index.html",
   "appData": {
-    "version": "1.0.7",
-    "changelog": "Implementada melhoria na atualização automática (IGTI)."
+    "version": "1.0.8",
+    "changelog": "Adicionados novos horários."
   },
   "assetGroups": [
     {
