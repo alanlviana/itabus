@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LinhaOnibus } from '../logic/linha-onibus';
 import { LinhasService } from '../logic/linhas-service';
 import { CalculadorProximoHorario } from '../logic/calculador-proximo-horario';
@@ -18,7 +18,7 @@ export class DetalharLinhaComponent implements OnInit {
 
   timer: any;
 
-  constructor(private activated: ActivatedRoute,private linhaService: LinhasService) { }
+  constructor(private activated: ActivatedRoute,private linhaService: LinhasService, private router: Router) { }
 
   ngOnInit() {
     this.routeringPages = this.activated.params.subscribe(params => {
@@ -45,6 +45,11 @@ export class DetalharLinhaComponent implements OnInit {
         this.atualizaHorariosDestinos();
       }
     },1000);
+  }
+
+  irParaHome(){
+    console.log("Entrou no método ir para home");
+    this.router.navigate(['/linhas']);
   }
 
   atualizaHorariosDestinos(){

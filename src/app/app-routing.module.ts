@@ -5,6 +5,7 @@ import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
 
 import { ListaLinhasComponent } from './linhas/lista-linhas/lista-linhas.component';
 import { DetalharLinhaComponent } from './linhas/detalhar-linha/detalhar-linha.component';
+import { CompartilharComponent } from './compartilhar/compartilhar.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,12 @@ const routes: Routes = [
     component:ListaLinhasComponent
   },
   {
-    path: 'linhas/:id', component: DetalharLinhaComponent
+    path: 'linhas/:id', 
+    component: DetalharLinhaComponent
+  },
+  {
+    path:'compartilhar',
+    component: CompartilharComponent
   },
   {
     path:'',
