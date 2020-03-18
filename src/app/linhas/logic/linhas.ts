@@ -75,7 +75,42 @@ export const Linhas: LinhaOnibus[] = [
             }]
         
     }),
-
+    
+    new LinhaOnibus({
+        id: "caPinheiros",
+        origemLinha: "CA Pinheiros",
+        imageUrl: "/assets/itau_pinheiros.jpeg",
+        destinos:[
+            {
+                nome: "Centro Empresarial (CEIC)",
+                horarios: [
+                    "08:00",
+                    "09:15", "09:30",
+                    "10:00",
+                    "11:15", "11:30",
+                    "12:00",
+                    "13:15", "13:30",
+                    "14:00",
+                    "15:15",
+                    "16:30", "16:45",
+                    "17:30"
+                ]
+            },
+            {
+                nome: "WT + CEIC",
+                horarios: [
+                    "08:15",
+                    "09:45",
+                    "10:15", "10:30",
+                    "12:45",
+                    "13:00",
+                    "15:45",
+                    "16:45",
+                    "17:15",
+                    "18:30"
+                ]
+            }]
+    }),
     new LinhaOnibus({
         id: "centroEmpresarial",
         origemLinha: "Centro Empresarial (CEIC)",
@@ -99,6 +134,22 @@ export const Linhas: LinhaOnibus[] = [
                 ]
             },
             {
+                nome: "CT + CAT",
+                horarios: [
+                    "08:00", "08:45",
+                    "09:25", "09:55",
+                    "10:35",
+                    "11:20",
+                    "12:10", "12:30",
+                    "13:10", "13:55",
+                    "14:35",
+                    "15:10", "15:45",
+                    "16:30",
+                    "17:30",
+                    "18:00"
+                ]
+            },
+            {
                 nome: "Faria Lima",
                 horarios: [
                     "08:00", "08:50",
@@ -111,6 +162,35 @@ export const Linhas: LinhaOnibus[] = [
                     "16:10",
                     "17:30",
                     "18:15"
+                ]
+            },
+            {
+                nome: "CA Pinheiros",
+                horarios: [
+                    "08:00", "08:15", "08:50",
+                    "10:15", "10:30",
+                    "11:00",
+                    "12:10", "12:30",
+                    "13:00",
+                    "14:15", "14:30",
+                    "15:00",
+                    "16:30",
+                    "18:15", "18:45",
+                    "19:00"
+                ]
+            },
+            {
+                nome: "CA Pinheiros + WT",
+                horarios: [
+                    "08:30",
+                    "09:10", "09:30",
+                    "10:45",
+                    "11:15", "11:35", "11:50",
+                    "14:45",
+                    "15:30",
+                    "16:00",
+                    "17:00",
+                    "18:30"
                 ]
             }]
     }),
