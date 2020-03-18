@@ -134,7 +134,7 @@ export const Linhas: LinhaOnibus[] = [
                 ]
             },
             {
-                nome: "CT + CAT",
+                nome: "Centro Tecnológico + CA Tatuapé",
                 horarios: [
                     "08:00", "08:45",
                     "09:25", "09:55",
@@ -223,7 +223,7 @@ export const Linhas: LinhaOnibus[] = [
         imageUrl: "/assets/itau_tatuape.jpg",
         destinos:[
             {
-                nome: "CT + CEIC",
+                nome: "Centro Tecnológico + CEIC",
                 horarios: [
                     "08:00", "08:40",
                     "09:20",
@@ -239,7 +239,7 @@ export const Linhas: LinhaOnibus[] = [
                 ]
             },
             {
-                nome: "CT",
+                nome: "Centro Tecnológico",
                 horarios: [
                     "19:10", "19:30"
                 ]
